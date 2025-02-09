@@ -11,11 +11,16 @@ public class FollowCam : MonoBehaviour
     float storeTrackSpeed;
     float ultraSpeed = 100f;
 
+    public GameObject bg0;
+    public float bg0speed = 0.8f;
+
+
     public float scrollAmount = .01f;
     public float scrollAccel = 0.0001f;
     public float allowableOffset = 3.0f;
     
     private GameObject player;
+    
     //minCamHeight public so later the dislikes scripts can grab it to determine height
     public float minCamHeight;
 
@@ -28,13 +33,16 @@ public class FollowCam : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        transform.position = new Vector3(0, player.transform.position.y + 5, -10);
+        transform.position = new Vector3(0, 5, -10);
         minCamHeight = transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //for background
+        Vector3 oldPos = transform.position;
+
         // Auto scroll if camerapos is lower than mincamerapos
         if (transform.position.y < minCamHeight)
         {
@@ -70,5 +78,16 @@ public class FollowCam : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, minCamHeight, -10), trackSpeed * Time.deltaTime);
             }
         }
+
+        Vector3 newPos = transform.position;
+
+        //Bacgkround pos
+        Vector3 delta = newPos - oldPos;
+        bg0.transform.position += new Vector3(delta.x, delta.y, 0) * bg0speed;
+
+
+
+
+
     }
 }

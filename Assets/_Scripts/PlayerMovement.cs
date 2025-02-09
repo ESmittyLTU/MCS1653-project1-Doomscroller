@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 20.0f;
     public float jumpMult = 1;
 
+    public int health = 3;
 
     public BoxCollider2D groundCollider;
     private Rigidbody2D rb;
@@ -46,9 +47,19 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpForce * jumpMult, ForceMode2D.Impulse);
             }
         }
+
+
     }
     private bool IsGrounded()
     {
-        return groundCollider.IsTouchingLayers(LayerMask.GetMask("Platform"));
+        //Also checks if player does not have vertical velocity (ie, falling or mid-jump)
+        if (rb.velocity.y < 0.01f)
+        {
+            return groundCollider.IsTouchingLayers(LayerMask.GetMask("Platform"));
+        } else
+        {
+            return false;
+        }
     }
+
 }

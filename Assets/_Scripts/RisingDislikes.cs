@@ -14,6 +14,6 @@ public class RisingDislikes : MonoBehaviour
     void Update()
     {
         minHeight = cam.GetComponent<FollowCam>().minCamHeight;
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, minHeight - 8, -10), minHeight * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, minHeight - 8, -3), minHeight * Time.deltaTime);
     }
 }
