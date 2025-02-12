@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     int roomNum = 0;
-    private GameObject cam, selectedRoom;
+    public GameObject cam, selectedRoom;
     public GameObject[] roomPrefabs;
 
     const int roomHeight = 52;
@@ -36,9 +36,14 @@ public class GameManager : MonoBehaviour
         //For procedural, probably make two game object arrays, set second one to first on start, and whenever the second one gets randomly selected rooms spawned,
         //then removed from list, and when second list is all out of rooms, set second list to first again so it loops
 
+        if (roomNum > roomPrefabs.Length)
+        {
+            //roomNum = 0;
+        }
         //Select room from list of gameObjects then intantiate it at the current height
-        selectedRoom = roomPrefabs[roomNum];
+        //selectedRoom = roomPrefabs[roomNum];
         Instantiate(selectedRoom, new Vector3(0, roomNum * roomHeight, 0), Quaternion.identity);
+        
     }
 
 
