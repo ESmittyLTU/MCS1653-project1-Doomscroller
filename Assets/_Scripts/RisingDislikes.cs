@@ -11,6 +11,21 @@ public class RisingDislikes : MonoBehaviour
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera");
     }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (other.gameObject.GetComponent<PlayerMovement>().invincible)
+            {
+                //Do nothing
+            } else
+            {
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
     void Update()
     {
         minHeight = cam.GetComponent<FollowCam>().minCamHeight;

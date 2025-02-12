@@ -11,8 +11,8 @@ public class FollowCam : MonoBehaviour
     float storeTrackSpeed;
     float ultraSpeed = 100f;
 
-    public GameObject bg0;
-    public float bg0speed = 0.8f;
+    //public GameObject bg0;
+    //public float bg0speed = 0.8f;
 
 
     public float scrollAmount = .01f;
@@ -41,7 +41,7 @@ public class FollowCam : MonoBehaviour
     void Update()
     {
         //for background
-        Vector3 oldPos = transform.position;
+        //Vector3 oldPos = transform.position;
 
         // Auto scroll if camerapos is lower than mincamerapos
         if (transform.position.y < minCamHeight)
@@ -79,11 +79,11 @@ public class FollowCam : MonoBehaviour
             }
         }
 
-        Vector3 newPos = transform.position;
+        //Vector3 newPos = transform.position;
 
         //Bacgkround pos
-        Vector3 delta = newPos - oldPos;
-        bg0.transform.position += new Vector3(delta.x, delta.y, 0) * bg0speed;
+        //Vector3 delta = newPos - oldPos;
+        //bg0.transform.position += new Vector3(delta.x, delta.y, 0) * bg0speed;
 
 
 
