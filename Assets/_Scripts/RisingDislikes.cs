@@ -21,7 +21,13 @@ public class RisingDislikes : MonoBehaviour
                 //Do nothing
             } else
             {
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<PlayerMovement>().health = 0;
+
+                GameObject ld = GameObject.FindGameObjectWithTag("LifeDisplay");
+                for (int i = 3; i >= 0; i--)
+                {
+                    ld.transform.GetChild(i).gameObject.SetActive(false);
+                }
             }
         }
     }

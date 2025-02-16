@@ -10,7 +10,7 @@ public class SpeedPowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameObject player = other.gameObject;
-            player.GetComponent<PlayerMovement>().speedMult += 0.1f;
+            player.GetComponent<PlayerMovement>().speedMult += 0.15f;
             Debug.Log("SpeedMult is" + player.GetComponent<PlayerMovement>().speedMult);
             //Do all the effects
             Destroy(gameObject);

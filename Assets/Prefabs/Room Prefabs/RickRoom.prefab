@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 261913365950077638}
   m_Layer: 0
-  m_Name: Start Room
+  m_Name: RickRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,12 +10,13 @@ public class GameManager : MonoBehaviour
     public GameObject[] roomPrefabs;
 
     const int roomHeight = 52;
-
+    GameObject player; 
     float camHeight;
 
     private void Start()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -27,6 +28,14 @@ public class GameManager : MonoBehaviour
         {
             roomNum++;
             SpawnRoom();
+        }
+
+
+        // Player death sequence
+        if (player.GetComponent<PlayerMovement>().health <= 0 || player == null)
+        {
+            GameObject.FindGameObjectWithTag("LifeDisplay").transform.GetChild(0).gameObject.SetActive(false);
+            Destroy(player);
         }
 
     }

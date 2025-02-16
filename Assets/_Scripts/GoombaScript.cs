@@ -32,15 +32,10 @@ public class GoombaScript : MonoBehaviour
             //Make another script, throw it on this gameobj, and call the function to run particle effects
             Destroy(gameObject);
         }
-        else if (other.gameObject.CompareTag("Player") && other.transform.position.y < transform.position.y + .9f)
+        else if (other.gameObject.CompareTag("Player") && other.transform.position.y < transform.position.y + .9f && GetComponent<SquashDetection>().squashed == false)
         {
             other.gameObject.GetComponent<PlayerMovement>().health--;
             Debug.Log("Health is " + other.gameObject.GetComponent<PlayerMovement>().health);
-
-            if (other.gameObject.GetComponent<PlayerMovement>().health <= 0)
-            {
-                Destroy(other.gameObject);
-            }
         }
 
     }

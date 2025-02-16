@@ -37,10 +37,6 @@ public class LifeDisplay : MonoBehaviour
         {
             heart2.SetActive(false);
         }
-        else if (health <= 0)
-        {
-            heart1.SetActive(false);
-        }
         
 
     }

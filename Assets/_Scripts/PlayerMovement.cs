@@ -67,6 +67,16 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector3(rb.velocity.x, 0, 0);
                 rb.AddForce(Vector3.up * jumpForce * jumpMult, ForceMode2D.Impulse);
             }
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            {
+                float objectiveY = transform.position.y - 1.25f;
+                while (transform.position.y > objectiveY)
+                {
+                    rb.isKinematic = true;
+                }
+                rb.isKinematic = false;
+            }
+
             if (horiz != 0)
             {
                 anim.Play("player-running");

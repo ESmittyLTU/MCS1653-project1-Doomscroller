@@ -12,14 +12,17 @@ public class SpawnPowerUp : MonoBehaviour
         here = transform.position;
         if (selector <= 3)
         {
-            spawnPowerUp(jump);
-        } else if (selector <= 6)
-        {
             spawnPowerUp(speed);
-        } else if (selector <= 8)
+        } 
+        else if (selector <= 6)
+        {
+            spawnPowerUp(jump);
+        } 
+        else if (selector <= 8)
         {
             spawnPowerUp(life);
-        } else if (selector == 9) 
+        } 
+        else if (selector == 9) 
         {
             spawnPowerUp(invinc);
         }

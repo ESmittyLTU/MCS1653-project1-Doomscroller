@@ -10,7 +10,7 @@ public class JumpPowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameObject player = other.gameObject;
-            player.GetComponent<PlayerMovement>().jumpMult += 0.1f;
+            player.GetComponent<PlayerMovement>().jumpMult += 0.07f;
             Debug.Log("JumpMult is" + player.GetComponent<PlayerMovement>().jumpMult);
             //Do all the effects
             Destroy(gameObject);
