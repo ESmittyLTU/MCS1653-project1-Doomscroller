@@ -6392,7 +6392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff2ab457d8d68e45b44b8b30acca1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackSpeed: 20
+  trackSpeed: 10
   scrollAmount: 0.25
   scrollAccel: 0.00008
   allowableOffset: 3
