@@ -6,6 +6,7 @@ public class RisingDislikes : MonoBehaviour
 {
     float minHeight;
     private GameObject cam;
+    public AudioClip playerHurt;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class RisingDislikes : MonoBehaviour
             } else
             {
                 other.gameObject.GetComponent<PlayerMovement>().health = 0;
-
+                AudioSource.PlayClipAtPoint(playerHurt, cam.transform.position, 2f);
                 GameObject ld = GameObject.FindGameObjectWithTag("LifeDisplay");
                 for (int i = 3; i >= 0; i--)
                 {

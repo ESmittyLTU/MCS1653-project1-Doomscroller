@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private const float gravity = 4.0f;
 
+    public AudioClip jumpSound;
+
+    private GameObject cam;
     // Improvements to consider:
     // - Double jump
     // - Easing into movement (accelerating more slowly)
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         invincIndicator = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject;
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     // Update is called once per frame
@@ -63,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 anim.Play("player-jumping");
+                AudioSource.PlayClipAtPoint(jumpSound, cam.transform.position);
                 //Set vertical velocity to 0 then add a force (prevents these tiny hops which can be annoying)
                 rb.velocity = new Vector3(rb.velocity.x, 0, 0);
                 rb.AddForce(Vector3.up * jumpForce * jumpMult, ForceMode2D.Impulse);

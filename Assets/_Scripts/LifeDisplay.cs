@@ -22,20 +22,30 @@ public class LifeDisplay : MonoBehaviour
         if (health == 4)
         {
             heart4.SetActive(true);
+            heart3.SetActive(true);
+            heart2.SetActive(true);
+            heart1.SetActive(true);
         }
         else if (health == 3)
         {
             heart4.SetActive(false);
             heart3.SetActive(true);
+            heart2.SetActive(true);
+            heart1.SetActive(true);
         } 
         else if (health == 2) 
-        { 
+        {
+            heart4.SetActive(false);
             heart3.SetActive(false);
             heart2.SetActive(true);
+            heart1.SetActive(true);
         } 
         else if (health == 1)
         {
+            heart4.SetActive(false);
+            heart3.SetActive(false);
             heart2.SetActive(false);
+            heart1.SetActive(true);
         }
         
 

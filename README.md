@@ -10,57 +10,62 @@
 ---
 
 # Required ReadMe Info for ALL MCS1653 Projects
-* **Project**   - 
-* **Your Name** - 
-* **Date**      - 
+* **Project**   - Project 1 - Doomscroller
+* **Your Name** - Eli Smith
+* **Date**      - February 17, 2025
 
 <br>
 
 1. **What are the controls to your game? How do we play?**
 
-
+AD/Arrows for left/right.
+Spacebar/W/Up for jump
 
 <br>
 
 2. **What creative additions did you make? How can we find them?**
 
-
+Everything except listed assets.
 
 <br>
 
 3. **Any assets used that you didn't create yourself?** <br> (art, music, etc. Just tell us where you got it, link it here)
 
+Music:
+https://pixabay.com/music/funk-my-style-300590/
+https://pixabay.com/music/funk-groovy-ambient-funk-201745/
 
+Some random free download pngs here and there, didn't get link when I found them. All else created by me.
 
 <br>
 
 4. **Did you receive help from anyone outside this class?** <br> (list their names and what they helped with)
 
-
+No
 
 <br>
 
 5. **Did you get help from any AI Code Assistants?** <br> (Tell us which .cs file to look in for the citation and describe what you learned)
 
-
+Google's AI in the search results, but no explicit use of asking AI.
 
 <br>
 
 6. **Did you get help from any online websites, videos, or tutorials?** <br> (link them here)
 
-
+Various forums, short clips, etc., but no strict following of tutorials
 
 <br>
 
 7. **What trouble did you have with this project?**
 
-
+Enemies sometimes trigger twice, dealing damage more than they're supposed to. My dynamic camera took a while to get working properly, but it works great now.
 
 <br>
 
 8. **Is there anything else we should know?**
 
-
+Eli Smith is "The Man."
 
 
 <br><br><br><br><br>

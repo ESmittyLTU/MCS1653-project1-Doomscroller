@@ -1,12 +1,14 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class GameManager : MonoBehaviour
 {
     int roomNum = 0;
-    public GameObject cam, selectedRoom;
+    public GameObject cam, selectedRoom, deathScreen, WinScreen;
     public GameObject[] roomPrefabs;
 
     const int roomHeight = 52;
@@ -17,6 +19,9 @@ public class GameManager : MonoBehaviour
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera");
         player = GameObject.FindGameObjectWithTag("Player");
+        deathScreen.SetActive(false);
+        Cursor.visible = false;
+        WinScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,12 +35,14 @@ public class GameManager : MonoBehaviour
             SpawnRoom();
         }
 
-
         // Player death sequence
         if (player.GetComponent<PlayerMovement>().health <= 0 || player == null)
         {
             GameObject.FindGameObjectWithTag("LifeDisplay").transform.GetChild(0).gameObject.SetActive(false);
             Destroy(player);
+            deathScreen.SetActive(true);
+            Time.timeScale = 0.1f;
+            Cursor.visible = true;
         }
 
     }

@@ -8,15 +8,20 @@ public class GoombaScript : MonoBehaviour
     public Transform[] waypoints;
     public float speed = 1.8f;
     public float tolerance = 0.05f;
-    
+    public GameObject deathEffect;
+
     private Vector3 currentTarget;
     private int nextTarget;
 
     private SpriteRenderer sr;
     private Animator anim;
 
+    public AudioClip squashSound, playerHurt;
+    private GameObject cam;
+
     void Start()
     {
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
@@ -27,15 +32,20 @@ public class GoombaScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Enemy trigger entered");
-        if (other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<PlayerMovement>().invincible)
-        {
-            //Make another script, throw it on this gameobj, and call the function to run particle effects
-            Destroy(gameObject);
-        }
-        else if (other.gameObject.CompareTag("Player") && other.transform.position.y < transform.position.y + .9f && GetComponent<SquashDetection>().squashed == false)
-        {
-            other.gameObject.GetComponent<PlayerMovement>().health--;
-            Debug.Log("Health is " + other.gameObject.GetComponent<PlayerMovement>().health);
+        if (other.gameObject.CompareTag("Player")) { 
+            if (other.gameObject.GetComponent<PlayerMovement>().invincible)
+            {
+                AudioSource.PlayClipAtPoint(squashSound, cam.transform.position);
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+                //Make another script, throw it on this gameobj, and call the function to run particle effects
+                Destroy(gameObject);
+            }
+            else if (transform.GetChild(0).gameObject.GetComponent<SquashDetection>().squashed == false && transform.position.y + 0.75f >= other.transform.position.y)
+            {
+                other.gameObject.GetComponent<PlayerMovement>().health--;
+                AudioSource.PlayClipAtPoint(playerHurt, cam.transform.position, 2f);
+                Debug.Log("Health is " + other.gameObject.GetComponent<PlayerMovement>().health);
+            }
         }
 
     }
